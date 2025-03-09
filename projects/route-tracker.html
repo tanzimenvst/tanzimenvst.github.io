@@ -380,17 +380,17 @@
               [
                 {
                   layer: L.tileLayer(
-                    "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+                    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   ).addTo(i),
-                  icon: "../images/alidade_smooth.png",
-                  name: "Smooth",
+                  icon: "../images/openstreetmap.png",
+                  name: "OSM",
                 },
                 {
                   layer: L.tileLayer(
-                    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
                   ),
-                  icon: "../images/openstreetmap.png",
-                  name: "OSM",
+                  icon: "../images/alidade_smooth.png",
+                  name: "Smooth",
                 },
                 {
                   layer: L.tileLayer(
