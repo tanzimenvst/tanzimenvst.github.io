@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tanzim's Portfolio</title>
+  <link rel="shortcut icon" href="./images/logo.jpg" type="image/x-icon">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="./css/icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <!-- MAIN -->
+  <main>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./images/my-logo.png" alt="Tanzim" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Md. Tanzim Hasan">Md. Tanzim Hasan</h1>
+          <p class="title">Junior GIS Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="iconbox">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:tanzimenvst@gmail.com" class="contact-link">tanzimenvst@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="iconbox">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+8801521318465" class="contact-link">+880 1521-318465</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="iconbox">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Dhaka, Bangladesh</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/md-tanzim-hasan" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://wa.me/+8801521318465" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/tanzimenvst" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <!-- NAVBAR -->
+      <!-- <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><button class="navbar-link active" data-page="about">About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-page="experiences.html">Experiences</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-page="giscripts.html">GIScripts</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-page="contact">Contact</button></li>
+        </ul>
+      </nav> -->
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link active" href="index.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="experiences.html">Experiences</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="giscripts.html">GIScripts</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+
+      <!-- ABOUT -->
+      <article class="page active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About Me</h2>
+        </header>
+
+        <section class="about-text">
+          <h3 class="h3 service-title">Who I Am</h3>
+          <p>
+            I am a GIS professional with a strong foundation in Environmental Science, 
+            passionate about harnessing the power of geospatial technologies to solve complex challenges and drive innovation. 
+          </p>
+          <p>
+            My work revolves around creating smarter, data-driven solutions that enhance efficiency, accuracy, and decision-making in the geospatial domain. 
+            With a blend of technical expertise and a commitment to sustainability, 
+            I strive to push the boundaries of what’s possible in geospatial and environmental sciences.
+          </p>
+
+          <h3 class="h3 service-title">What I Do</h3>
+          <p>
+            I specialize in geospatial data analysis, Python scripting, and workflow automation, leveraging cutting-edge tools and technologies to build robust, scalable, and user-friendly applications.
+          </p>
+          <p>
+            From automating repetitive tasks and designing intuitive interfaces to developing dynamic dashboards and spatial analysis tools, 
+            I thrive on creating solutions that streamline workflows and deliver actionable insights. 
+          </p>
+          <p>
+            My work is driven by a passion for innovation and a commitment to sustainability, aiming to address real-world challenges through data-driven approaches.
+          </p>
+
+          <h3 class="h3 service-title">My Vision</h3>
+          <p>
+            Driven by a passion for innovation and sustainability, I aim to develop impactful solutions that address real-world environmental and geospatial challenges. 
+            I believe in the power of collaboration and am always eager to connect with like-minded professionals to explore new technologies, tackle exciting projects, and contribute to a more sustainable and data-driven future.
+          </p>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- skills -->
+        <section class="service">
+          <h3 class="h3 skills-title">My skills</h3>
+
+            <!-- GIS Tools & Platforms -->
+            <div class="content-card">
+              <figure class="testimonials-avatar-box">
+                <img src="./images/platform.png" alt="GIS Tools & Platforms" width="60">
+              </figure>
+
+              <h4 class="h4 testimonials-item-title">GIS Tools & Platforms</h4>
+            
+              <ul class="service-list">
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-arcgis-pro"></i></a></li>
+                  <h5 class="h5">ArcGIS Pro</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-arcmap"></i></a></li>
+                  <h5 class="h5">ArcGIS Desktop</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-qgis"></i></a></li>
+                  <h5 class="h5">QGIS</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="ti ti-leaf"></i></a></li>
+                  <h5 class="h5">Leaflet</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-postgresql"></i></a></li>
+                  <h5 class="h5">PostgreSQL</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-postgis"></i></a></li>
+                  <h5 class="h5">PostGIS</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-gdal"></i></a></li>
+                  <h5 class="h5">GDAL</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-gee"></i></a></li>
+                  <h5 class="h5">Google Earth Engine</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-erdas"></i></a></li>
+                  <h5 class="h5">ERDAS IMAGINE</h5>
+                </div>
+              </ul>
+            </div>
+
+            <!-- Programming & Development -->
+            <div class="content-card">
+              <div class="contacts-list">
+                <figure class="testimonials-avatar-box">
+                  <img src="./images/coding.png" alt="Programming & Development" width="60">
+                </figure>
+  
+                <h4 class="h4 testimonials-item-title">Programming & Development</h4>
+
+                <li class="service-item">
+                  <div class="service-iconbox"><img src="./images/python.svg" alt="design icon" width="40"></div>
+
+                  <div class="service-content-box">
+                    <h4 class="h4 service-item-title">Python</h4>
+  
+                    <ul class="service-list">
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-arcpy"></i></a></li>
+                        <h5 class="h5">ArcPy</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-geopandas"></i></a></li>
+                        <h5 class="h5">GeoPandas</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="fa-sharp-duotone fa-solid fa-vector-square"></i></a></li>
+                        <h5 class="h5">Shapely</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-plotly"></i></a></li>
+                        <h5 class="h5">Plotly</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-tk"></i></a></li>
+                        <h5 class="h5">Tkinter</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-flask"></i></a></li>
+                        <h5 class="h5">Flask</h5>
+                      </div>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="service-item">
+                  <div class="service-iconbox"><img src="./images/webgis.svg" alt="design icon" width="40"></div>
+                  
+                  <div class="service-content-box">
+                    <h4 class="h4 service-item-title">WebGIS</h4>
+  
+                    <ul class="service-list">
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><ion-icon name="logo-javascript"></ion-icon></a></li>
+                        <h5 class="h5">JavaScript</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-jquery"></i></a></li>
+                        <h5 class="h5">jQuery</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><ion-icon name="logo-html5"></ion-icon></a></li>
+                        <h5 class="h5">HTML</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><ion-icon name="logo-css3"></ion-icon></a></li>
+                        <h5 class="h5">CSS</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="fa-brands fa-bootstrap"></i></a></li>
+                        <h5 class="h5">Bootstrap</h5>
+                      </div>
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="fa-brands fa-php"></i></a></li>
+                        <h5 class="h5">PHP</h5>
+                      </div>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="service-item">
+                  <div class="service-iconbox"><img src="./images/database.svg" alt="design icon" width="40"></div>
+                  
+                  <div class="service-content-box">
+                    <h4 class="h4 service-item-title">Database & Query Languages</h4>
+  
+                    <ul class="service-list">
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="ti ti-file-type-sql"></i></a></li>
+                        <h5 class="h5">Structured Query Language (SQL)</h5>
+                      </div>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="service-item">
+                  <div class="service-iconbox"><img src="./images/programming.svg" alt="design icon" width="40"></div>
+                  
+                  <div class="service-content-box">
+                    <h4 class="h4 service-item-title">Other Programming</h4>
+  
+                    <ul class="service-list">
+                      <div class="contact-item">
+                        <li class="social-item"><a class="social-link"><i class="icon-visualbasic"></i></a></li>
+                        <h5 class="h5">Visual Basic</h5>
+                      </div>
+                    </ul>
+                  </div>
+                </li>
+              </div>
+            </div>
+
+            <!-- Others -->
+            <div class="content-card">
+              <figure class="testimonials-avatar-box">
+                <img src="./images/other.png" alt="Others" width="60">
+              </figure>
+
+              <h4 class="h4 testimonials-item-title">Development Ecosystems</h4>
+            
+              <ul class="service-list">
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-anaconda"></i></a></li>
+                  <h5 class="h5">Anaconda</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-visual-studio-code"></i></a></li>
+                  <h5 class="h5">Visual Studio Code (VS Code)</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-jupyter"></i></a></li>
+                  <h5 class="h5">Jupyter Notebook</h5>
+                </div>
+                <div class="contact-item">
+                  <li class="social-item"><a class="social-link"><i class="icon-pycharm"></i></a></li>
+                  <h5 class="h5">PyCharm</h5>
+                </div>
+              </ul>
+            </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <!-- custom js link -->
+  <script src="./js/script.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tanzim's Portfolio</title>
+  <link rel="shortcut icon" href="./images/logo.jpg" type="image/x-icon">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="./css/icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <!-- MAIN -->
+  <main>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./images/my-logo.png" alt="Tanzim" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Md. Tanzim Hasan">Md. Tanzim Hasan</h1>
+          <p class="title">Junior GIS Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Tools</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <h4 class="tool-title">Tools</h4>
+
+        <ul class="tool-list">
+          <li onclick="showProject('project1')">Route Tracking</li>
+          <li onclick="showProject('project2')">CSV To DEM Generation</li>
+        </ul>
+
+        <div></div>
+      </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="index.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="experiences.html">Experiences</a></li>
+          <li class="navbar-item"><a class="navbar-link active" href="giscripts.html">GIScripts</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    
+
+
+      <!-- GIScripts -->
+      <article class="page active" data-page="giscripts">
+        <header>
+          <h2 class="h2 article-title">Workflow & Codebase</h2>
+        </header>
+
+        <h4 id="tool-head"><p class="tool-head">Shortest Route Tracking WebMap</p></h4>
+        <p id="project-details">
+          <iframe src="projects/route-tracker.html" width="100%" height="600px" frameborder="0"></iframe>
+          <br><br><br>
+        </p>
+        
+      </article>
+    </div>
+  </main>
+
+  <!-- custom js link -->
+  <script src="./js/script.js"></script>
+  
+</body>
+
+<script>
+  // Function to display project details
+  function showProject(project) {
+
+    var projectTitle = '';
+    var projectDetails = '';
+
+    const toolItems = document.querySelectorAll('.tool-list li');
+
+    // Remove active class from all items
+    toolItems.forEach(li => li.classList.remove('active'));
+
+    // Add active class to corresponding item
+    const index = project === 'project1' ? 0 : 1;
+    toolItems[index].classList.add('active');
+
+    if (project == 'project1') {
+      projectTitle = `
+          <p class="tool-head">Shortest Route Tracking WebMap</p>
+      `;
+      projectDetails = `
+          <iframe src="projects/route-tracker.html" width="100%" height="600px" frameborder="0"></iframe>
+          <br><br><br>
+      `;
+
+    } else if (project == 'project2') {
+      projectTitle = `
+          <p class="tool-head">Generate DEM From XYZ Values in CSV Files</p>
+      `;
+      projectDetails = `
+          <iframe src="projects/csv_to_dem.html" width="100%" height="600px" frameborder="0"></iframe>
+          <br><br><br>
+      `;
+    }
+      
+    // Update project details in the HTML
+    document.getElementById('tool-head').innerHTML = projectTitle;
+    document.getElementById('project-details').innerHTML = projectDetails;
+  }
+
+  // Set initial state
+  window.addEventListener('DOMContentLoaded', () => {
+    showProject('project1');
+  });
+</script>
+
+</html>
