@@ -980,6 +980,75 @@ main {
   color: var(--light-gray);
 } */
 
+.technology-box {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #f2f2f2; /* Set your desired color for the technology box */
+}
+
+.php {
+  background-color: #D4E6F1;
+}
+
+.python {
+  background-color:#F2D7D5;
+}
+
+.javascript {
+  background-color:#EBDEF0;
+}
+
+.sql{
+  background-color:#D0ECE7;
+}
+
+.postgis {
+  background-color:#7DCEA0
+;
+}
+
+.postgresql {
+  background-color:#FCF3CF;
+}
+
+.mysql {
+  background-color:burlywood;
+}
+
+.leaflet {
+  background-color:#EDBB99;
+}
+
+.turf {
+  background-color:#D5DBDB;
+}
+
+.arcmap {
+  background-color:#AEB6BF;
+}
+
+.qgis {
+  background-color:#7DCEA0;
+}
+
+.html {
+  background-color:thistle;
+}
+
+.css {
+  background-color:lightsalmon;
+}
+
+.gdal {
+  background-color:#D1C4E9;
+}
+
+.ajax {
+  background-color:#B2EBF2;
+}
 
 /**
  * skills 
