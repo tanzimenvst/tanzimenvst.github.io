@@ -51,6 +51,7 @@
         <ul class="tool-list">
           <li onclick="showProject('project1')">Route Tracking</li>
           <li onclick="showProject('project2')">CSV To DEM Generation</li>
+          <li onclick="showProject('project3')">Code Line Counter</li>
         </ul>
 
         <div></div>
@@ -94,9 +95,7 @@
 </body>
 
 <script>
-  // Function to display project details
   function showProject(project) {
-
     var projectTitle = '';
     var projectDetails = '';
 
@@ -105,29 +104,35 @@
     // Remove active class from all items
     toolItems.forEach(li => li.classList.remove('active'));
 
-    // Add active class to corresponding item
-    const index = project === 'project1' ? 0 : 1;
-    toolItems[index].classList.add('active');
+    // Get all project IDs
+    const projectMap = [...toolItems].map(li => li.getAttribute('onclick').match(/'([^']+)'/)[1]);
 
-    if (project == 'project1') {
-      projectTitle = `
-          <p class="tool-head">Shortest Route Tracking WebMap</p>
-      `;
-      projectDetails = `
-          <iframe src="projects/route-tracker.html" width="100%" height="600px" frameborder="0"></iframe>
-          <br><br><br>
-      `;
+    // Determine index and apply active class
+    const index = projectMap.indexOf(project);
+    if (index !== -1) toolItems[index].classList.add('active');
 
-    } else if (project == 'project2') {
-      projectTitle = `
-          <p class="tool-head">Generate DEM From XYZ Values in CSV Files</p>
-      `;
-      projectDetails = `
-          <iframe src="projects/csv_to_dem.html" width="100%" height="600px" frameborder="0"></iframe>
-          <br><br><br>
-      `;
+    // Define project details
+    const projectContent = {
+      'project1': {
+        title: 'Shortest Route Tracking WebMap',
+        iframe: 'projects/route-tracker.html'
+      },
+      'project2': {
+        title: 'Generate DEM From XYZ Values in CSV Files',
+        iframe: 'projects/csv_to_dem.html'
+      },
+      'project3': {
+        title: 'Measure Codebase Size',
+        iframe: 'projects/code_line_counter.html'
+      }
+    };
+
+    // Set content
+    if (projectContent[project]) {
+      projectTitle = `<p class="tool-head">${projectContent[project].title}</p>`;
+      projectDetails = `<iframe src="${projectContent[project].iframe}" width="100%" height="600px" frameborder="0"></iframe><br><br><br>`;
     }
-      
+
     // Update project details in the HTML
     document.getElementById('tool-head').innerHTML = projectTitle;
     document.getElementById('project-details').innerHTML = projectDetails;
@@ -135,8 +140,9 @@
 
   // Set initial state
   window.addEventListener('DOMContentLoaded', () => {
-    showProject('project1');
+    showProject(document.querySelector('.tool-list li').getAttribute('onclick').match(/'([^']+)'/)[1]);
   });
+
 </script>
 
 </html>
