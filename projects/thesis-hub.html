@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thesis Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card {
+      border-radius: 1rem;
+    }
+    .badge {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-fluid px-3 py-3">
+    <div class="card shadow border-0">
+      <div class="card-body">
+
+        <div class="text-center">
+          <video class="img-fluid rounded shadow mb-4" controls autoplay muted loop>
+            <source src="../images/thesis-hub-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <p class="text-end">
+          <a href="https://thesis-hub-nplm.onrender.com" target="_blank" class="btn btn-primary mb-2">🔗 Live App</a>
+        </p>
+
+        <hr>
+
+        <h5 class="mt-4">Why I Built This</h5>
+        <p style="text-align: justify;">While visualizing my own thesis data, I realized that every student and researcher could benefit from a shared platform that lets them <span class="fw-medium">spatially visualize academic research</span>. This idea inspired me to develop <span class="fw-medium">Thesis Hub</span> — a centralized academic web app where anyone can explore, visualize, and upload research work interactively on a map.</p>
+
+        <p style="text-align: justify;">Universities and departments can use it to map their alumni theses, students can identify unexplored locations, and researchers can easily find spatially related past work. It can turn institutional research data into an interactive, discoverable map-based experience.</p>
+
+        <div class="alert alert-light mt-4" role="alert" style="text-align: justify;">
+          <span class="fw-semibold">Full-Stack Problem Solving:</span> This project demonstrates my ability to design, develop, and deploy a complete data-driven web application — from backend architecture to interactive frontend visualization, with integrated authentication, content management, and email automation.
+        </div>
+
+        <h5 class="mt-4">How It Works</h5>
+        <ul>
+          <li>All thesis projects are displayed on an interactive map using markers.</li>
+          <li>Users can filter by university, department, degree, and roll number.</li>
+          <li>Each marker displays thesis title, abstract, study area, sampling points, and other spatial results.</li>
+          <li>Users can upload their own theses and visualize result maps.</li>
+          <li>User authentication system with registration, login, and email-based verification.</li>
+          <li>Password reset via time-limited secure link sent directly to user email.</li>
+          <li>Admin panel (CMS) to manage submitted theses, verify uploads, and maintain datasets.</li>
+          <li>Email notifications automatically sent to admins for any updates.</li>
+        </ul>
+
+        <h5 class="mt-4">Technologies Used</h5>
+        <span class="badge bg-secondary me-1 mb-1">Flask (Python)</span>
+        <span class="badge bg-secondary me-1 mb-1">HTML</span>
+        <span class="badge bg-secondary me-1 mb-1">Bootstrap 5</span>
+        <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+        <span class="badge bg-secondary me-1 mb-1">PostgreSQL + PostGIS</span>
+        <span class="badge bg-secondary me-1 mb-1">Leaflet.js</span>
+        <span class="badge bg-secondary me-1 mb-1">Supabase Auth</span>
+        <span class="badge bg-secondary me-1 mb-1">GeoServer (WMS)</span>
+        <span class="badge bg-secondary me-1 mb-1">Render Hosting</span>
+
+        <h5 class="mt-4">Hosting & Performance</h5>
+        <p style="text-align: justify;">This project is hosted on <span class="fw-medium">Render’s free-tier Singapore server</span> to make it publicly accessible as a non-commercial showcase of my visualization.</p>
+        <p style="text-align: justify;">Render’s free-tier services automatically go to sleep if inactive for 15 minutes — causing a <span class="fw-medium">cold start delay of 1–2 minutes</span> when re-accessed. To keep the app responsive and available <span class="fw-medium">24/7</span>, I implemented a background “keep-alive” mechanism that periodically pings the server, effectively preventing it from sleeping. This ensures that users can access the live app instantly at any time.</p>
+
+        <div class="alert alert-warning" role="alert" style="text-align: justify;">Since the app is hosted on free-tier services, it may be slightly slow or temporarily offline at times. It currently performs best on desktop — mobile view is not yet fully supported.</div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
