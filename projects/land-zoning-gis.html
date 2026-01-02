@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Land Zoning Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: auto;
+    }
+    .proj p, ul, h2 {
+      margin-bottom: 0;
+    }
+    h2 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .slider-container {
+      width: 100%;
+      /* max-width: 1000px; */
+      height: 600px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      background: hsla(35, 45%, 77%, 0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-title {
+      background-color: hsla(35, 45%, 77%, 0.5);
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      font-weight: bold;
+      padding: 15px;
+      text-align: center;
+      height: fit-content;
+      z-index: 2;
+      position: relative;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .image-wrapper-outer {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider-strip {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .slide-footer {
+      background-color: hsla(35, 45%, 77%, 0.5);
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      height: 30px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .slide-footer button {
+      padding: 3px 20px;
+      font-size: 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #eee;
+      color: hsl(0, 0%, 0%);
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .slide-footer button:hover {
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div class="container proj mb-4">
+  <!-- Heading -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-2">
+    <h2 class="fw-bold">From Scanned Maps to WebGIS: A Complete Workflow</h2>
+  </div>
+
+  <div class="slider-container">
+    <div class="slide-title" id="slideTitle">Scanned Copy Of Physical Cadastral Map</div>
+
+    <div class="image-wrapper-outer">
+      <div class="slider-strip" id="sliderStrip">
+        <div class="slide"><img src="../images/lzp1.jpg" alt="Image 1"></div>
+        <div class="slide"><img src="../images/lzp2.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="../images/lzp3.jpg" alt="Image 3"></div>
+        <div class="slide"><img src="../images/lzp4.jpg" alt="Image 4"></div>
+        <div class="slide"><img src="../images/lzp5.jpg" alt="Image 5"></div>
+        <div class="slide"><img src="../images/lzp6.jpg" alt="Image 6"></div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <button onclick="prevSlide()"><i class="fa-solid fa-caret-left"></i></button>
+      <button onclick="nextSlide()"><i class="fa-solid fa-caret-right"></i></button>
+    </div>
+  </div>
+
+  <div class="section-card shadow border-0 p-4 mb-4 mt-5">
+    <p style="margin-bottom: 20px;">
+      This slideshow presents the transformation journey of cadastral data, starting from scanned copies of physical maps to an interactive WebGIS platform.
+    </p>
+    <p class="mb-3"><strong>Workflow Steps:</strong></p>
+    <ul style="padding-left: 1.2rem;">
+      <li>Digitize scanned copies of physical cadastral maps.</li>
+      <li>Add database information for each spatial feature.</li>
+      <li>Project and georeference the datasets to align with real-world coordinates.</li>
+      <li>Perform edge matching to ensure seamless transitions between adjacent sheets.</li>
+      <li>Prepare and publish the refined data in a WebGIS application.</li>
+    </ul>
+    <p style="margin-top: 20px;">
+      The final output is displayed through the official 
+      <a href="https://map.land.gov.bd" target="_blank" style="color: #007BFF; text-decoration: none;">
+        Web Map of the Ministry of Land, Bangladesh
+      </a>, as part of the Land Zoning Project, a project I proudly contributed to.
+    </p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const sliderStrip = document.getElementById('sliderStrip');
+    const titleElement = document.getElementById('slideTitle');
+    const slideTitles = [
+      "Scanned Copy Of Physical Cadastral Map", "Digitized Vector Version", "Database Against Each Feature",
+      "Physical To Digital", "Georeferenced", "WebMAP Application"
+    ];
+    const totalSlides = slideTitles.length;
+    let index = 0;
+    let transitioning = false;
+    let autoSlideTimer = null;
+
+    function updateSlider(duration = '0.6s') {
+      sliderStrip.style.transition = `transform ${duration} ease-in-out`;
+      sliderStrip.style.transform = `translateX(-${index * 100}%)`;
+      updateTitle();
+    }
+
+    function updateTitle() {
+      titleElement.style.opacity = 0;
+      setTimeout(() => {
+        titleElement.textContent = slideTitles[index];
+        titleElement.style.opacity = 1;
+      }, 300);
+    }
+
+    // ATTACH TO WINDOW TO MAKE ACCESSIBLE TO BUTTONS
+    window.nextSlide = function() {
+      if (transitioning) return;
+      transitioning = true;
+      const wasLast = index === totalSlides - 1;
+      index = (index + 1) % totalSlides;
+      updateSlider(wasLast ? '1.5s' : '0.6s');
+      resetAutoSlide();
+      setTimeout(() => transitioning = false, wasLast ? 1000 : 600);
+    };
+
+    window.prevSlide = function() {
+      if (transitioning) return;
+      transitioning = true;
+      const wasFirst = index === 0;
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateSlider(wasFirst ? '1.5s' : '0.6s');
+      resetAutoSlide();
+      setTimeout(() => transitioning = false, wasFirst ? 1000 : 600);
+    };
+
+    function resetAutoSlide() {
+      if (autoSlideTimer) clearTimeout(autoSlideTimer);
+      autoSlideTimer = setTimeout(() => {
+        window.nextSlide();
+      }, 5000);
+    }
+
+    resetAutoSlide();
+</script>
+
+</body>
+</html>

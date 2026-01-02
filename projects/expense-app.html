@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thesis Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: auto;
+    }
+    .proj p, ul, h2 {
+      margin-bottom: 0;
+    }
+    h2 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .badge {
+      margin-right: 5px;
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+    .desc {
+      text-align: justify;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container proj mb-4">
+
+  <!-- Heading -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-2">
+    <h2 class="fw-bold">Personal Expense Tracker (Non-GIS Application)</h2>
+  </div>
+  
+  <!-- Demo -->
+  <div class="section-card shadow border-0 p-4 mb-5">
+    <img src="../images/expense-app-demo.png" class="img-fluid rounded shadow mb-4" alt="Expense App Demo Screenshot">
+    <div class="mt-3">
+      <a href="https://tanzimenvst.github.io/expense-app/" target="_blank" class="btn btn-primary mb-2">🔗 Live App</a>
+      <a href="https://github.com/tanzimenvst/expense-app" target="_blank" class="btn btn-outline-dark ms-2 mb-2">📂 GitHub Repository</a>
+    </div>
+  </div>
+
+  <!-- Project Overview -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Project Overview</h5>
+    <hr>
+    <p class="desc">A lightweight personal expense tracking application featuring grouped categories, adjustable budget allocations, and real-time balance indicators, built to work entirely offline without cloud dependencies while ensuring full local data privacy.</p>
+    <div class="alert alert-light mt-3 mb-0" role="alert">
+      This project reflects my capability to turn a personal need into a functional and maintainable solution, built from the ground up with performance, usability, and privacy in mind.
+    </div>
+  </div>
+
+  <!-- KEY FEATURES -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Key Features</h5>
+    <hr>
+    <ul>
+      <li>Daily expense input by category, amount, and date.</li>
+      <li>Dynamic monthly summary with month switching capability to view past data.</li>
+      <li>Color-coded remaining balances (🟩 Under budget, 🟥 Over budget).</li>
+      <li>Edit mode for modifying past expenses and allocations.</li>
+      <li>CSV export for external analysis.</li>
+      <li>Offline-first thus, works without internet after initial load.</li>
+    </ul>
+  </div>
+
+  <!-- TECHNOLOGIES USED -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Technologies Used</h5>
+    <hr>
+    <span class="badge bg-secondary me-1 mb-1">HTML</span>
+    <span class="badge bg-secondary me-1 mb-1">CSS</span>
+    <span class="badge bg-secondary me-1 mb-1">Bootstrap</span>
+    <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+    <span class="badge bg-secondary me-1 mb-1">LocalStorage</span>
+  </div>
+
+  <!-- Contribution -->
+  <div class="section-card shadow border-0 p-4">
+    <h5 class="fw-bold mb-3">Use It Yourself</h5>
+    <hr>
+    <p>This app is open source and ready for anyone to use. Just visit the <a href="https://tanzimenvst.github.io/expense-app/" target="_blank">Live Site</a> and start tracking your expenses immediately.</p>
+    <ul class="mt-2">
+      <li>No sign-up required</li>
+      <li>Fully offline, works right in your browser after the first load, no cloud, no syncing</li>
+    </ul>
+    <div class="alert alert-warning mt-3" role="alert">
+      <h6 class="alert-heading">🔒 Security Note</h6>
+      <hr>
+      <p class="mb-0">Your data never leaves your browser. The app uses only <code>LocalStorage</code> of your browser, meaning everything you enter stays entirely on your device, ensuring complete privacy and control.</p>
+    </div>
+    <h6 class="mt-4 fw-bold">Things to Consider:</h6>
+    <ul>
+      <li>If I update the codebase, your version will also update the next time you’re online</li>
+      <li><span class="fw-medium">If you want a fully customized or independent version</span>, you can:</li>
+        <ol>
+          <li>Fork the source on <a href="https://github.com/tanzimenvst/expense-app" target="_blank">GitHub</a></li>
+          <li>Clone it to your local machine or your own GitHub Page</li>
+          <li>Modify the code to fit your needs</li>
+          <li>Host it anywhere you like, full control is yours</li>
+        </ol>
+    </ul>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

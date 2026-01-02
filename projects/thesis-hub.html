@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thesis Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: auto;
+    }
+    .proj p, ul, h2 {
+      margin-bottom: 0;
+    }
+    h2 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .badge {
+      margin-right: 5px;
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+    .desc {
+      text-align: justify;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container proj mb-4">
+
+  <!-- HERO SECTION -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-2">
+    <h2 class="fw-bold">Thesis Hub</h2>
+  </div>
+  
+  <div class="section-card shadow border-0 p-4 mb-5">
+    <video class="img-fluid rounded shadow" controls autoplay muted loop>
+      <source src="../images/thesis-hub-demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="mt-3">
+      <a href="https://thesis-hub-nplm.onrender.com" target="_blank" class="btn btn-primary me-2">
+        🔗 Live App
+      </a>
+    </div>
+  </div>
+  
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Project Overview</h5>
+    <hr>
+    <p class="desc">
+      A web-based GIS platform to spatially visualize, explore, and manage academic thesis research on an interactive map.
+    </p>
+  </div>
+
+  <!-- PROJECT OBJECTIVES -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Project Objectives</h5>
+    <hr>
+    <ul>
+      <li>Create a centralized platform to visualize academic research spatially.</li>
+      <li>Enable students and researchers to explore thesis study areas interactively.</li>
+      <li>Help universities map alumni research and identify unexplored locations.</li>
+      <li>Transform institutional research data into a discoverable GIS experience.</li>
+    </ul>
+  </div>
+
+  <!-- KEY FEATURES -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Key Features</h5>
+    <hr>
+    <ul>
+      <li>Interactive Leaflet map displaying thesis locations using markers.</li>
+      <li>Filtering by university, department, degree, and roll number.</li>
+      <li>Detailed popup with thesis title, abstract, study area, and results.</li>
+      <li>User authentication with registration, login, and email verification.</li>
+      <li>Thesis upload system with spatial data visualization.</li>
+      <li>Admin CMS to verify submissions and manage datasets.</li>
+      <li>Automated email notifications for updates and actions.</li>
+    </ul>
+  </div>
+
+  <!-- TECHNOLOGIES USED -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Technologies Used</h5>
+    <hr>
+
+    <span class="badge bg-secondary me-1 mb-1">Flask (Python)</span>
+    <span class="badge bg-secondary me-1 mb-1">HTML</span>
+    <span class="badge bg-secondary me-1 mb-1">Bootstrap 5</span>
+    <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+    <span class="badge bg-secondary me-1 mb-1">PostgreSQL</span>
+    <span class="badge bg-secondary me-1 mb-1">PostGIS</span>
+    <span class="badge bg-secondary me-1 mb-1">Leaflet</span>
+    <span class="badge bg-secondary me-1 mb-1">GeoServer (WMS)</span>
+    <span class="badge bg-secondary me-1 mb-1">Supabase Auth</span>
+    <span class="badge bg-secondary me-1 mb-1">Render Hosting</span>
+  </div>
+
+  <!-- CHALLENGES & SOLUTIONS -->
+  <div class="section-card shadow border-0 p-4">
+    <h5 class="fw-bold mb-3">Challenges & Solutions</h5>
+    <hr>
+
+    <p>
+      <strong>Challenge:</strong> Free-tier hosting caused the application to sleep after inactivity, leading to long cold-start delays.
+    </p>
+    <p>
+      <strong>Solution:</strong> Implemented a background keep-alive mechanism to periodically ping the server, ensuring 24/7 availability.
+    </p>
+
+    <hr>
+
+    <p>
+      <strong>Challenge:</strong> Managing secure user authentication and thesis uploads in a public academic platform.
+    </p>
+    <p>
+      <strong>Solution:</strong> Integrated Supabase Auth with email verification, password reset links, and an admin-controlled CMS.
+    </p>
+
+    <div class="alert alert-warning mt-3 mb-0">
+      Since the app is hosted on free-tier services, performance may vary and mobile view is not yet fully supported.
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

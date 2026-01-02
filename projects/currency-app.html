@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Currency App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: auto;
+    }
+    .proj p, ul, h2 {
+        margin-bottom: 0;
+    }
+    h2 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .section-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .icon-square {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: white;
+    }
+    .section-title {
+        color: #1f2937;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        border-left: 5px solid #0d6efd;
+        padding-left: 1rem;
+    }
+    #projectCarousel img {
+        object-fit: cover;
+    }
+    /* Custom Styles for Dark Carousel Arrows */
+    .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231f2937'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e") !important;
+    }
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231f2937'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    }
+</style>    
+</head>
+<body>
+    <div class="container proj mb-4">
+        <!-- Heading -->
+        <div class="section-card shadow border-0 p-4 mb-4 mt-2">
+            <h2 class="fw-bold">Worldwide Exchange Rate Dashboard</h2>
+        </div>
+
+        <!-- Screenshot Carousel and Live Link -->
+        <div class="mx-auto">
+            <!-- Bootstrap Carousel -->
+            <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner rounded-3 shadow-lg">
+                    <div class="carousel-item active" data-bs-interval="5000">
+                        <img src="../images/currency_app_1.png" class="d-block w-100" alt="App Screenshot 1">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-2 rounded">
+                            <h6>Main View with Sidebar</h6>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../images/currency_app_2.png" class="d-block w-100" alt="App Screenshot 2">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-2 rounded">
+                            <h6>Single Currency Pair Trend</h6>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../images/currency_app_3.png" class="d-block w-100" alt="App Screenshot 3">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-2 rounded">
+                            <h6>Multi-Currency Performance Chart</h6>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Live Exploration Link -->
+            <div class="text-center mt-4 mb-4">
+                <a href="https://currency-viewer-app.streamlit.app" target="_blank" class="btn btn-primary btn-lg rounded-pill px-5 shadow-lg">Explore Live Dashboard</a>
+                <p class="mt-3 text-muted small">Built using Streamlit and Plotly for an interactive experience</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <main class="container py-4">
+            
+            <!-- Project Overview -->
+            <div class="mb-5">
+                <h5 class="section-title">What This App is ?</h5>
+                <div class="section-card p-4">
+                    <p style="text-align: justify;">
+                        The <span style="font-weight: 600;">Worldwide Exchange Rate Dashboard</span> is a dynamic currency data visualization tool built using <span style="font-weight: 600;">Streamlit</span>. It provides users with up-to-date and historical exchange rate data for 180+ of global currencies, allowing for complex multi-currency comparisons and single-pair time-series analysis over the last 50 days.
+                    </p>
+                    <p class="alert alert-info text-muted mt-3 mb-0" role="alert" style="text-align: justify;">
+                        This project showcases my capability to build a robust, integrated visualization platform for complex, multivariate time-series data. The application is designed to efficiently ingest and present multiple disparate data streams within a single, cohesive, and performant user interface.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Functionality -->
+            <div class="mb-5">
+                <h5 class="section-title">How it Works (Key Features)</h5>
+                <div class="row g-4">
+                    
+                    <div class="col-md-6">
+                        <div class="section-card p-4 h-100">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="icon-square border border-primary me-3">🔄</div>
+                                <h6 class="mb-0">Currency Comparison Tool</h6>
+                            </div><hr>
+                            <p style="text-align: justify;">Users select a base and a target currency to view a dedicated line chart showing the exchange rate movement over the past 50 days. This offers a precise, focused trend analysis between two specific currencies.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="section-card p-4 h-100">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="icon-square border border-success me-3">🌍</div>
+                                <h6 class="mb-0">Multi-Currency Performance</h6>
+                            </div><hr>
+                            <p style="text-align: justify;">Users can select multiple currencies via continent-wise expanding sidebar menus. The application generates a single chart that normalizes and plots the performance of all selected currencies against the USD, allowing for rapid detection of appreciation/depreciation patterns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Stack -->
+            <div class="mb-5">
+                <h5 class="section-title">Tech Stack Used</h5>
+                <div class="section-card p-4 bg-light">
+                    <div class="row row-cols-1 row-cols-md-4 text-center">
+                        
+                        <div class="col">
+                            <span class="badge bg-dark p-2">Python</span>
+                            <p class="small text-muted mb-0">Core Language</p>
+                        </div>
+                        <div class="col">
+                            <span class="badge bg-dark p-2">Streamlit</span>
+                            <p class="small text-muted mb-0">Web App Framework</p>
+                        </div>
+                        <div class="col">
+                            <span class="badge bg-dark p-2">Plotly</span>
+                            <p class="small text-muted mb-0">Interactive Visualization</p>
+                        </div>
+                        <div class="col">
+                            <span class="badge bg-dark p-2">Requests</span>
+                            <p class="small text-muted mb-0">API Interaction</p>
+                        </div>
+                    </div><hr>
+                    <div class="row row-cols-1 row-cols-md-3 text-center">
+                        <div class="col">
+                            <span class="badge bg-secondary p-2">JSON</span>
+                            <p class="small text-muted mb-0">Data Handling</p>
+                        </div>
+                        <div class="col">
+                            <span class="badge bg-secondary p-2">External Exchange Rate API</span>
+                            <p class="small text-muted mb-0">Real-time Data Source</p>
+                        </div>
+                        <div class="col">
+                            <span class="badge bg-secondary p-2">Datetime</span>
+                            <p class="small text-muted mb-0">Time Series</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills and Capabilities Demonstrated -->
+            <div class="mb-0">
+                <h5 class="section-title">Skills & Capabilities Demonstrated</h5>
+                <div class="col">
+                    
+                    <div class="row-md-4 mb-3">
+                        <div class="section-card h-100 p-4 border-info border-start border-5">
+                            <h6 class="text-info">API Integration & Data Engineering</h6>
+                            <ul class="list-unstyled mb-0 small">
+                                <li>Securely handling API keys via Streamlit's secrets management.</li>
+                                <li>Efficiently fetching time-series data using the <code>requests</code> library.</li>
+                                <li>Robust error handling <code>response.raise_for_status()</code> for external API calls.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row-md-4 mb-3">
+                        <div class="section-card h-100 p-4 border-warning border-start border-5">
+                            <h6 class="text-warning">Data Visualization & Analysis</h6>
+                            <ul class="list-unstyled mb-0 small">
+                                <li>Creating interactive, publication-quality graphs using <strong>Plotly</strong>.</li>
+                                <li>Applying mathematical normalization to compare currencies on a consistent basis.</li>
+                                <li>Time-series data processing and date manipulation with Python's <code>datetime</code> module.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row-md-4">
+                        <div class="section-card h-100 p-4 border-danger border-start border-5">
+                            <h6 class="text-danger">Application Development & UX</h6>
+                            <ul class="list-unstyled mb-0 small">
+                                <li>State management using <code>st.session_state</code> for maintaining user selections across reruns.</li>
+                                <li>Custom CSS styling within Streamlit for improved aesthetics and layout optimization (Sidebar, mobile-friendly design).</li>
+                                <li>Clean separation of concerns between data fetching, processing, and UI rendering.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Load Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

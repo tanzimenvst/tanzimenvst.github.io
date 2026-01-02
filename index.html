@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanzim | Portfolio</title>
+  <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
+    <div class="container position-relative">
+      <div id="navbarBrand">
+        <img src="images/my-logo.png" alt="Tanzim">
+        <h2 class="navbar-brand fw-bold mb-0">Md. Tanzim Hasan</h2>
+      </div>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#about" data-section="0">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience" data-section="1">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" data-section="2">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-section="3">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="about" class="active">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center mb-4 mb-md-0">
+            <div class="photo-container">
+              <div class="photo-border"></div>
+              <div class="inner-border"></div>
+              <img id="aboutPhoto" src="images/Tanzim.jpg" class="img-fluid rounded-circle shadow">
+            </div>
+            <div class="social-container">
+              <a href="https://www.linkedin.com/in/md-tanzim-hasan" target="_blank" rel="noopener noreferrer" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i><span class="tooltip">LinkedIn</span></a>
+              <a href="https://github.com/tanzimenvst" target="_blank" rel="noopener noreferrer" class="social-icon github"><i class="fab fa-github"></i><span class="tooltip">GitHub</span></a>
+              <a href="mailto:tanzimenvst@gmail.com" target="_blank" rel="noopener noreferrer" class="social-icon gmail"><i class="fa-regular fa-envelope"></i><span class="tooltip">Gmail</span></a>
+              <!-- <a href="https://wa.me/+8801521318465" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp"><i class="fa-brands fa-whatsapp"></i><span class="tooltip">WhatsApp</span></a> -->
+            </div>
+          </div>
+          <div class="col-md-8 text-center text-md-start mt-4 pt-1">
+            <h5 class="text-muted mb-2 d-flex align-items-center">
+              <img src="images/waving-hand.png" alt="Waving Hand" class="waving-hand-img me-2">Hi, I'm..
+            </h5>
+            <h1 class="fw-bold mb-2 shine-text">Md. Tanzim Hasan</h1>
+            <!-- <h3 class="text-muted mb-3">Junior GIS Developer</h3> -->
+            <h5 class="text-muted mb-3 fw-bold">Junior GIS Developer</h5>
+            <p class="lead mb-4">A GIS Professional specializing in Python automation and WebGIS development to transform complex spatial data into scalable, interactive, and actionable real-world solutions.</p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+              <span class="badge skill-python">Python</span>
+              <span class="badge skill-webgis">WebGIS</span>
+              <span class="badge skill-leaflet">Leaflet</span>
+              <span class="badge skill-js">JavaScript</span>
+              <span class="badge skill-database">PostGIS</span>
+              <span class="badge skill-server">GeoServer</span>
+              <span class="badge skill-arcgis">ArcGIS</span>
+              <span class="badge skill-qgis">QGIS</span>
+            </div>
+            <div class="mt-4 d-flex justify-content-center justify-content-md-start">
+              <a href="/Md Tanzim Hassan - Resume.pdf" target="_blank" class="btn-resume">
+                <i class="fas fa-file-download me-2"></i>Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container py-1">
+        <div class="section-scroll-buffer">
+          <div class="experience-timeline">
+            <!-- Spekter -->
+            <div class="timeline-item current">
+              <div class="timeline-left">
+                <div class="timeline-date">Dec 2024 – Present</div>
+                <div class="timeline-title">Junior GIS Developer</div>
+                <div class="timeline-company">SPEKTER GmbH</div>
+                <div class="timeline-place">Herzogenaurach, Bavaria, Germany (Remote)</div>
+              </div>
+              <div class="timeline-right">
+                <div class="timeline-description">
+                  Bridging the gap between spatial data and web development by automating complex hydrological workflows and building interactive visualization tools. Creating high-performance Python scripts for large-scale data processing and developing WebGIS platforms that translate technical flood risk simulations into accessible 2D and 3D maps.
+                </div>
+                <div class="timeline-skills">
+                  <span class="badge skill-py">Python</span>
+                  <span class="badge skill-py">Pythonnet</span>
+                  <span class="badge skill-py">Paramiko</span>
+                  <span class="badge skill-py">Anaconda</span>
+                  <span class="badge skill-py">Waitress</span>
+                  <span class="badge skill-py">ArcPy</span>
+                  <span class="badge skill-py">GeoPandas</span>
+                  <span class="badge skill-py">Shapely</span>
+                  <span class="badge skill-py">Rasterio</span>
+                  <span class="badge skill-py">GDAL</span>
+                  <span class="badge skill-py">Mikeio</span>
+                  <span class="badge skill-py">Tkinter</span>
+                  <span class="badge skill-py">Pillow</span>
+                  <span class="badge skill-py">Plotly</span>
+                  <span class="badge skill-py">Psycopg2</span>
+                  <span class="badge skill-py">Flask</span>
+                  <span class="badge skill-py">Streamlit</span>
+                  <span class="badge skill-gis">ArcGIS Pro</span>
+                  <span class="badge skill-gis">ArcMAP</span>
+                  <span class="badge skill-gis">QGIS</span>
+                  <span class="badge skill-web">Leaflet</span>
+                  <span class="badge skill-web">Mapbox</span>
+                  <span class="badge skill-web">GeoServer</span>
+                  <span class="badge skill-web">JavaScript</span>
+                  <span class="badge skill-web">HTML</span>
+                  <span class="badge skill-web">CSS</span>
+                  <span class="badge skill-web">Bootstrap</span>
+                  <span class="badge skill-db">PostGIS</span>
+                  <span class="badge skill-db">PostgreSQL</span>
+                  <span class="badge skill-db">Jira</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- GSP -->
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-date">Jan 2025 – Apr 2025</div>
+                <div class="timeline-title">GIS Expert</div>
+                <div class="timeline-company">Geo Smart Planning</div>
+                <div class="timeline-place">Khulna, Bangladesh (Contractual - Remote)</div>
+              </div>
+              <div class="timeline-right">
+                <div class="timeline-description">
+                  Transitioned into a leadership and technical optimization role, focusing on large-scale data integrity and team management. Designed robust ETL (Extract, Transform, Load) tools that automated the conversion of complex CAD and imagery formats into standardized, project-ready spatial databases while ensuring high-precision cartographic accuracy across hundreds of datasets by executing and overseeing the georeferencing, adjustment, and seamless edge-matching.
+                </div>
+                <div class="timeline-skills">
+                  <span class="badge skill-py">Python</span>
+                  <span class="badge skill-py">Arcpy</span>
+                  <span class="badge skill-py">Tkinter</span>
+                  <span class="badge skill-gis">ArcGIS Pro</span>
+                  <span class="badge skill-gis">ModelBuilder</span>
+                  <span class="badge skill-db">VB</span>
+                  <span class="badge skill-db">Excel Macros</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- BETS -->
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-date">Aug 2023 – Nov 2024</div>
+                <div class="timeline-title">Assistant GIS Specialist</div>
+                <div class="timeline-company">BETS Consulting Services Ltd.</div>
+                <div class="timeline-place">Dhaka, Bangladesh</div>
+              </div>
+              <div class="timeline-right">
+                <div class="timeline-description">
+                  Architected and implemented an automated quality assurance and production system for a national-scale land zoning initiative. Developed custom Python frameworks to validate millions of attributes across thousands of cadastral maps in seconds, ensuring data integrity. Engineered end-to-end automation tools for dataset validation, cartographic styling, and the bulk production of standardized, publication-ready map layouts, transforming a manual process into a high-throughput digital pipeline.
+                </div>
+                <div class="timeline-skills">
+                  <span class="badge skill-py">Python</span>
+                  <span class="badge skill-py">Arcpy</span>
+                  <span class="badge skill-gis">ArcMap</span>
+                  <span class="badge skill-db">VB</span>
+                  <span class="badge skill-db">Excel Macros</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- DDC -->
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-date">Feb 2022 – Jul 2023</div>
+                <div class="timeline-title">GIS Analyst</div>
+                <div class="timeline-company">Development Design Consultants Ltd.</div>
+                <div class="timeline-place">Dhaka, Bangladesh</div>
+              </div>
+              <div class="timeline-right">
+                <div class="timeline-description">
+                  Built the foundational geospatial data infrastructure for a national land management project. Executed the high-precision digitization and topological validation of thousands of cadastral maps into structured file geodatabases. Applied systematic geoprocessing and ground-truthing methodologies to create clean, reliable Land Use/Land Cover (LULC) datasets, establishing the accurate spatial baselines critical for all subsequent zoning and analysis.
+                </div>
+                <div class="timeline-skills">
+                  <span class="badge skill-py">Python</span>
+                  <span class="badge skill-py">Arcpy</span>
+                  <span class="badge skill-gis">ArcMap</span>
+                  <span class="badge skill-gis">ModelBuilder</span>
+                  <span class="badge skill-db">VB</span>
+                  <span class="badge skill-db">Excel Macros</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container-fluid h-100">
+        <div class="row g-4 projects-grid-container h-100">
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/RouteTracker.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Route Tracker</h5>
+                  <p class="card-text">An interactive map tool that allows users to detect shortest travel routes</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">Leaflet</span>
+                  <span class="badge bg-secondary">OSRM API</span>
+                  <span class="badge bg-secondary">Leaflet Routing Machine</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/CurrencyApp.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Currency App</h5>
+                  <p class="card-text">A data visualization application for tracking and comparing global currency exchange rates</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">Streamlit</span>
+                  <span class="badge bg-secondary">Plotly</span>
+                  <span class="badge bg-secondary">Pandas</span>
+                  <span class="badge bg-secondary">API</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/ThesisHub.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Thesis Hub</h5>
+                  <p class="card-text">A central platform for managing and visualizing thesis projects with geospatial data</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">Flask</span>
+                  <span class="badge bg-secondary">Leaflet</span>
+                  <span class="badge bg-secondary">JavaScript</span>
+                  <span class="badge bg-secondary">PostGIS</span>
+                  <span class="badge bg-secondary">GeoServer</span>
+                  <span class="badge bg-secondary">Supabase</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/ExpenseApp.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Expense App</h5>
+                  <p class="card-text">A privacy-focused, offline-first personal finance tracker that stores data locally in the browser</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">HTML</span>
+                  <span class="badge bg-secondary">CSS</span>
+                  <span class="badge bg-secondary">Bootstrap</span>
+                  <span class="badge bg-secondary">JavaScript</span>
+                  <span class="badge bg-secondary">LocalStorage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/LandZoningGIS.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Land Zoning GIS</h5>
+                  <p class="card-text">GIS workflow from physical maps to an interactive WebGIS platform</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">ArcGIS</span>
+                  <span class="badge bg-secondary">Spatial Analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/RooftopSolarModel.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Rooftop Solar Model</h5>
+                  <p class="card-text">An automated tool that estimates building-level rooftop solar electricity potential</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">ArcGIS</span>
+                  <span class="badge bg-secondary">ModelBuilder</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/CSVToDEM.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">CSV To DEM</h5>
+                  <p class="card-text">A utility to convert bulk raw coordinate data (CSV) into Digital Elevation Models (DEM) for terrain analysis</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">Arcpy</span>
+                  <span class="badge bg-secondary">GeoPandas</span>
+                  <span class="badge bg-secondary">GDAL</span>
+                  <span class="badge bg-secondary">NumPy</span>
+                  <span class="badge bg-secondary">Rasterio</span>
+                  <span class="badge bg-secondary">Jupyter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/MapContentExtractor.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Map Content Extractor</h5>
+                  <p class="card-text">A tool for extracting specific map content and geospatial features from digital sources</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">Arcpy</span>
+                  <span class="badge bg-secondary">GeoPandas</span>
+                  <span class="badge bg-secondary">Fiona</span>
+                  <span class="badge bg-secondary">Shapely</span>
+                  <span class="badge bg-secondary">NumPy</span>
+                  <span class="badge bg-secondary">Rasterio</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mt-0">
+            <div class="card shadow-sm">
+              <img src="images/CodeLineCounter.png" class="card-img-top project-img">
+              <div class="card-body">
+                <div class="card-content">
+                  <h5 class="card-title">Code Line Counter</h5>
+                  <p class="card-text">A developer tool for calculating and analyzing the total lines of code across project files</p>
+                </div>
+                <div class="card-skill">
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-secondary">Tkinter</span>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container h-100">
+        <div class="row justify-content-center align-items-stretch h-100">
+          <div class="col-lg-8 mt-5 mb-5">
+            <div id="map-container">
+              <div id="contactMap"></div>
+              
+              <div id="locationOverlay">
+                <h1 class="shine-text">Wanna Find Out How Far We Are !</h1>
+                <button id="askLocationBtn" class="btn btn-primary btn-lg shadow">
+                  Click To Give Your Location Access
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-5 mb-5">
+            <div class="contact-info-card p-4 h-100">
+              <ul class="contacts-list">
+                <li class="contact-item">
+                  <div class="iconbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                    <p class="contact-title">Email</p>
+                    <a href="mailto:tanzimenvst@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link">tanzimenvst@gmail.com</a>
+                  </div>
+                </li>
+
+                <li class="contact-item">
+                  <div class="iconbox">
+                    <ion-icon name="phone-portrait-outline"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                    <p class="contact-title">Phone</p>
+                    <a href="tel:+8801521318465" target="_blank" rel="noopener noreferrer" class="contact-link">+880 1521 318465</a>
+                  </div>
+                </li>
+
+                <li class="contact-item">
+                  <div class="iconbox">
+                    <ion-icon name="location-outline"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                    <p class="contact-title">Location</p>
+                    <address>Dhaka, Bangladesh</address>
+                  </div>
+                </li>
+              </ul>
+
+              <hr class="contact-divider">
+
+              <div class="contact-social-container">
+                <div class="contact-social-wrapper">
+                  <a href="https://www.linkedin.com/in/md-tanzim-hasan" target="_blank" rel="noopener noreferrer" class="contact-social-icon conact-linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <span class="contact-social-name">LinkedIn</span>
+                </div>
+
+                <div class="contact-social-wrapper">
+                  <a href="https://github.com/tanzimenvst" target="_blank" rel="noopener noreferrer" class="contact-social-icon conact-github">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <span class="contact-social-name">GitHub</span>
+                </div>
+
+                <div class="contact-social-wrapper">
+                  <a href="https://wa.me/+8801521318465" target="_blank" rel="noopener noreferrer" class="contact-social-icon conact-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </a>
+                  <span class="contact-social-name">WhatsApp</span>
+                </div>
+                
+                <div class="contact-social-wrapper">
+                  <a href="https://t.me/+8801521318465" target="_blank" rel="noopener noreferrer" class="contact-social-icon conact-telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                  </a>
+                  <span class="contact-social-name">Telegram</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="projectPopup" class="project-modal">
+    <div class="modal-container-inner">
+      <aside class="project-sidebar">
+        <div class="sidebar-header">
+          <button id="closePopup" class="btn-return">
+            <i class="bi bi-chevron-double-left"></i> Return
+          </button>
+        </div>
+        <ul id="sidebarProjectList" class="sidebar-list"></ul>
+      </aside>
+
+      <div class="project-display-area">
+        <div id="projectContentPlaceholder"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/script.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+</html>

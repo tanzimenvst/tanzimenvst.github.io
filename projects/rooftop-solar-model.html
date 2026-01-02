@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rooftop Solar Model</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: auto;
+    }
+    .proj ul, h2 {
+      margin-bottom: 0;
+    }
+    h2 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .badge {
+      margin-right: 5px;
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+    .desc {
+      text-align: justify;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container proj mb-4">
+
+  <!-- HERO SECTION -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-2">
+    <h2 class="fw-bold">Rooftop Solar Power Potential Assessment</h2>
+  </div>
+  
+  <div class="section-card shadow border-0 p-4 mb-5">
+    <video class="img-fluid rounded shadow" controls autoplay muted loop>
+      <source src="../images/Solar.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Project Overview</h5>
+    <hr>
+    <p class="desc mb-3">
+      This project demonstrates an end-to-end <strong>automated GIS workflow</strong> for estimating <strong>rooftop solar power generation potential</strong> at the neighborhood scale using <strong>ArcGIS Pro ModelBuilder</strong>.
+    </p>
+    <p class="desc mb-3">
+      The tool either processes <strong>LiDAR point cloud data</strong> to generate high-resolution surface models or use <strong>DSM</strong> as input and calculates <strong>annual solar radiation</strong> while accounting for rooftop geometry, shading effects, and sun position throughout the year. Based on defined suitability criteria, it identifies rooftops viable for photovoltaic (PV) installation and estimates <strong>building-level electricity production potential</strong>.
+    </p>
+    <p class="desc mb-3">
+      The workflow aggregates raster-based solar radiation results to individual building footprints, converts solar energy into <strong>realistic electrical power output estimates</strong>, and applies <strong>spatial statistics</strong> to identify clusters of high electricity production. These results are further used to support <strong>energy infrastructure planning</strong>, including the optimal placement of a neighborhood-scale <strong>battery storage facility</strong>.
+    </p>
+    <p class="desc">
+      All steps are fully automated using ModelBuilder, making the tool <strong>reproducible, scalable, and transferable</strong> to other cities or study areas with minimal modification.
+    </p>
+  </div>
+
+  <!-- PROJECT OBJECTIVES -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Project Outcome</h5>
+    <hr>
+    <ul>
+      <li>Building-level estimates of annual solar electricity production</li>
+      <li>Identification of high-potential rooftop clusters</li>
+      <li>Data-driven site selection for battery storage infrastructure</li>
+      <li>A reusable GIS tool suitable for urban renewable energy analysis</li>
+    </ul>
+  </div>
+
+  <!-- KEY FEATURES -->
+  <div class="section-card shadow border-0 p-4 mb-4 mt-4">
+    <h5 class="fw-bold mb-3">Skills Demonstrated</h5>
+    <hr>
+    <ul>
+      <li>GIS workflow automation using ModelBuilder</li>
+      <li>LiDAR point cloud processing and DSM generation</li>
+      <li>Rooftop-scale solar radiation modeling</li>
+      <li>Raster-to-vector data aggregation</li>
+      <li>Spatial statistics and hot spot analysis</li>
+      <li>Energy potential estimation and unit conversion</li>
+      <li>Spatial decision support for renewable energy planning</li>
+      <li>Clean, modular, and reusable geoprocessing design</li>
+    </ul>
+  </div>
+
+  <!-- TECHNOLOGIES USED -->
+  <div class="section-card shadow border-0 p-4">
+    <h5 class="fw-bold mb-3">Technologies & Tools Used</h5>
+    <hr>
+
+    <span class="badge bg-secondary me-1 mb-1">ArcGIS Pro</span>
+    <span class="badge bg-secondary me-1 mb-1">ModelBuilder</span>
+    <span class="badge bg-secondary me-1 mb-1">Spatial Analyst Extension</span>
+    <span class="badge bg-secondary me-1 mb-1">3D Analyst / Surface Analysis</span>
+    <span class="badge bg-secondary me-1 mb-1">LiDAR (LAS / DSM processing)</span>
+    <span class="badge bg-secondary me-1 mb-1">Raster Analysis & Conditional Modeling</span>
+    <span class="badge bg-secondary me-1 mb-1">Zonal Statistics</span>
+    <span class="badge bg-secondary me-1 mb-1">Hot Spot Analysis (Getis-Ord Gi*)</span>
+    <span class="badge bg-secondary me-1 mb-1">Geospatial Data Integration (Vector + Raster)</span>
+  </div>
+
+</div>
+
+</body>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
