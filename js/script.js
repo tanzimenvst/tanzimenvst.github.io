@@ -1,3 +1,26 @@
+// Mobile View
+function isMobile() {
+  return window.innerWidth <= 767;
+}
+
+// For mobile normal scroll
+function updateMobileScrollState() {
+  const html = document.documentElement;
+  const body = document.body;
+  const mainContent = document.querySelector('main');
+
+  html.classList.remove('mobile-scroll-locked');
+  body.classList.remove('mobile-scroll-locked');
+  if (mainContent) mainContent.classList.remove('main-blur');
+
+  if (isMobile() && isPopupOpen) {
+    html.classList.add('mobile-scroll-locked');
+    body.classList.add('mobile-scroll-locked');
+    if (mainContent) mainContent.classList.add('main-blur');
+  }
+}
+
+
 let isPopupOpen = false;
 
 // Projects Popup function to track popup state
@@ -26,7 +49,6 @@ function initProjectPopup() {
 
   // Map existing HTML cards to an array for the sidebar
   const projects = Array.from(projectCards).map((card, index) => {
-    // textContent is more reliable for hidden/styled elements than innerText
     const titleElement = card.querySelector('.card-title');
     const title = titleElement ? titleElement.textContent.trim() : `Project ${index + 1}`;
     
@@ -53,7 +75,7 @@ function initProjectPopup() {
       </div>`;
     
     try {
-      // if (fileName === 'code-line-counter.html' || fileName === 'csv-to-dem.html' || fileName === 'map-content-extractor.html') {
+      // if jupiter html
       contentArea.innerHTML = `
           <iframe src="./projects/${fileName}"
                   id="projectFrame"
@@ -61,43 +83,6 @@ function initProjectPopup() {
                   title="${title}"
                   onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';">
           </iframe>`;
-      // return;
-      // }
-
-      // Fetches HTML from the /projects/ folder
-      // const response = await fetch(`./projects/${fileName}`);
-      // if (!response.ok) throw new Error('File not found');
-      
-      // const html = await response.text();
-      // contentArea.innerHTML = html;
-
-      // if (fileName === 'route-tracker.html' || fileName === 'land-zoning-gis.html') {
-      //   // Extract scripts from the fetched HTML
-      //   const scripts = contentArea.querySelectorAll('script');
-      //   scripts.forEach(oldScript => {
-      //       const newScript = document.createElement('script');
-      //       newScript.text = oldScript.text;
-      //       document.head.appendChild(newScript).parentNode.removeChild(newScript);
-      //   });
-
-      //   // Give the browser 100ms to render the #map div before initializing Leaflet
-      //   setTimeout(() => {
-      //       if (typeof window.initRouteTrackerMap === 'function') {
-      //           window.initRouteTrackerMap();
-      //       }
-      //   }, 100);
-      // }
-
-      // if (fileName === 'currency-app.html') {
-      //   // Initialize the carousel manually to ensure auto-play starts immediately
-      //   const myCarousel = document.querySelector('#projectCarousel');
-      //   const carousel = new bootstrap.Carousel(myCarousel, {
-      //     interval: 5000,
-      //     ride: 'carousel',
-      //     pause: 'hover' // Optional: pauses when user hovers
-      //   });
-      // }
-
       
       // Reset scroll position of the content area
       document.querySelector('.project-display-area').scrollTop = 0;
@@ -138,6 +123,23 @@ function initProjectPopup() {
     }
   }
 
+  // New close button
+  function handleClose() {
+    popup.classList.remove('active');
+    document.body.classList.remove('modal-open');
+    isPopupOpen = false;
+    updateMobileScrollState();
+    
+    // Remove the mobile button if it exists
+    const mobileBtn = document.querySelector('.mobile-close-btn');
+    if (mobileBtn) mobileBtn.remove();
+
+    if (isMobile()) {
+      const projectsSection = document.getElementById('projects');
+      window.scrollTo({ top: projectsSection.offsetTop - 50, behavior: 'auto' });
+    }
+  }
+
   // Open Popup when clicking a Card
   projectCards.forEach((card, index) => {
     card.addEventListener('click', () => {
@@ -145,6 +147,18 @@ function initProjectPopup() {
       popup.classList.add('active');
       document.body.classList.add('modal-open'); // Prevents background scroll
       isPopupOpen = true; // Set the flag
+      updateMobileScrollState();
+      // Create mobile button dynamically
+      if (isMobile()) {
+        const mobileClose = document.createElement('button');
+        mobileClose.className = 'mobile-close-btn';
+        mobileClose.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        
+        // Append it directly to the popup so it's not inside the hidden sidebar
+        popup.appendChild(mobileClose);
+        
+        mobileClose.addEventListener('click', handleClose);
+      }
       
       setActiveSidebarItem(index);
       loadProjectFile(projects[index].fileName, projects[index].title);
@@ -166,6 +180,15 @@ function initProjectPopup() {
     popup.classList.remove('active');
     document.body.classList.remove('modal-open');
     isPopupOpen = false; // Reset the flag
+    updateMobileScrollState();
+    if (isMobile()) {
+      const projectsSection = document.getElementById('projects');
+      const navHeight = 50;
+      window.scrollTo({
+        top: projectsSection.offsetTop - navHeight,
+        behavior: 'auto'
+      });
+    }
   });
 
   // Handle Window Resize
@@ -174,6 +197,7 @@ function initProjectPopup() {
       updateModalSizing();
     }
   });
+  window.addEventListener('resize', updateMobileScrollState);
 }
 
 
@@ -207,7 +231,7 @@ function optimizeProjectCards() {
     card.style.height = `${cardWidth+4}px`;
   });
 
-  // We use requestAnimationFrame to ensure the browser has painted the grid first
+  // Use requestAnimationFrame to ensure the browser has painted the grid first
   requestAnimationFrame(() => {
     const projectCards = document.querySelectorAll('#projects .card');
     
@@ -250,6 +274,24 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Function to navigate to section
   function goToSection(index) {
+    if (isMobile()) {
+      const targetSection = sections[index];
+      if (targetSection) {
+        const navbarHeight = 50; 
+        const targetPosition = targetSection.offsetTop - navbarHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // Update UI immediately
+        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      }
+      return;
+    }
+
     if (isAnimating || index === currentSectionIndex || isPopupOpen) return;
     
     isAnimating = true;
@@ -294,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mouse wheel navigation
   let wheelTimeout;
   document.addEventListener('wheel', function(e) {
-    if (isAnimating || isPopupOpen) return;
+    if (isMobile() || isAnimating || isPopupOpen) return;
     
     clearTimeout(wheelTimeout);
     wheelTimeout = setTimeout(() => {
@@ -318,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { passive: true });
 
   document.addEventListener('touchend', function(e) {
-    if (isAnimating || isPopupOpen) return;
+    if (isMobile() || isAnimating || isPopupOpen) return;
     
     const touchEndY = e.changedTouches[0].clientY;
     const diff = touchStartY - touchEndY;
@@ -370,13 +412,31 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.classList.remove('active');
         document.body.classList.remove('modal-open');
         isPopupOpen = false;
+        updateMobileScrollState();
       }
       
       goToSection(index);
     });
   });
-  
 
+  // Sync Navbar highlight with manual scrolling on mobile
+  window.addEventListener('scroll', function() {
+    if (!isMobile()) return;
+    if (isPopupOpen) return;
+
+    let fromTop = window.scrollY + 100;
+
+    sections.forEach((section, index) => {
+      if (
+        section.offsetTop <= fromTop &&
+        section.offsetTop + section.offsetHeight > fromTop
+      ) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      }
+    });
+  });
+  
 
   // Initialize GSAP
   gsap.registerPlugin(ScrollTrigger);
@@ -633,7 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
           cardText.style.display = '';
           cardText.style.webkitLineClamp = '';
-      }, 400); // Matches your CSS transition time
+      }, 400); // Matches CSS transition time
     });
   });
 
@@ -642,9 +702,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- START MAP LOGIC ---
   const myLocation = [23.77293261002442, 90.42777728926725]; 
-  let map, userMarker, polyline, distanceControl; // Define distanceControl in parent scope
+  let map, userMarker, polyline, distanceControl;
 
-  // 1. Define the Distance Control Class
+  // Define the Distance Control Class
   const DistanceBox = L.Control.extend({
     onAdd: function() {
       this._div = L.DomUtil.create('div', 'distance-info-box');
