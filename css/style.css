@@ -896,7 +896,7 @@ h3 {
 
 /* Hover State: Expand only the text area */
 #projects .card:hover .card-body {
-  height: 80%;
+  height: 65%;
 }
 
 #projects .card:hover .card-text {
