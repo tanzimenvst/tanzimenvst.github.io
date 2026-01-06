@@ -3,6 +3,19 @@ function isMobile() {
   return window.innerWidth <= 767;
 }
 
+function isModelFull() {
+  return window.innerWidth <= 939;
+}
+
+// Scroll view
+function scrollview() {
+  return (
+    (window.innerWidth >= 768 && window.innerWidth <= 1499) ||
+    (window.innerWidth >= 1500 && window.innerHeight <= 849)
+  );
+}
+
+
 // For mobile normal scroll
 function updateMobileScrollState() {
   const html = document.documentElement;
@@ -14,6 +27,11 @@ function updateMobileScrollState() {
   if (mainContent) mainContent.classList.remove('main-blur');
 
   if (isMobile() && isPopupOpen) {
+    html.classList.add('mobile-scroll-locked');
+    body.classList.add('mobile-scroll-locked');
+    if (mainContent) mainContent.classList.add('main-blur');
+  }
+  if (scrollview() && isPopupOpen) {
     html.classList.add('mobile-scroll-locked');
     body.classList.add('mobile-scroll-locked');
     if (mainContent) mainContent.classList.add('main-blur');
@@ -149,7 +167,7 @@ function initProjectPopup() {
       isPopupOpen = true; // Set the flag
       updateMobileScrollState();
       // Create mobile button dynamically
-      if (isMobile()) {
+      if (isModelFull()) {
         const mobileClose = document.createElement('button');
         mobileClose.className = 'mobile-close-btn';
         mobileClose.innerHTML = '<i class="fa-solid fa-xmark"></i>';
@@ -181,7 +199,7 @@ function initProjectPopup() {
     document.body.classList.remove('modal-open');
     isPopupOpen = false; // Reset the flag
     updateMobileScrollState();
-    if (isMobile()) {
+    if (isMobile() || scrollview()) {
       const projectsSection = document.getElementById('projects');
       const navHeight = 50;
       window.scrollTo({
@@ -274,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Function to navigate to section
   function goToSection(index) {
-    if (isMobile()) {
+    if (isMobile() || scrollview()) {
       const targetSection = sections[index];
       if (targetSection) {
         const navbarHeight = 50; 
@@ -288,6 +306,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update UI immediately
         navLinks.forEach(link => link.classList.remove('active'));
         navLinks[index].classList.add('active');
+      }
+      if (!isMobile()) {
+        // Show/hide navbar brand based on section
+        if (index === 0) {
+          // About section - hide navbar brand
+          navbarBrand.classList.remove('visible');
+        } else {
+          // Any other section - show navbar brand
+          navbarBrand.classList.add('visible');
+        }
       }
       return;
     }
@@ -336,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mouse wheel navigation
   let wheelTimeout;
   document.addEventListener('wheel', function(e) {
-    if (isMobile() || isAnimating || isPopupOpen) return;
+    if (isMobile() || scrollview() || isAnimating || isPopupOpen) return;
     
     clearTimeout(wheelTimeout);
     wheelTimeout = setTimeout(() => {
@@ -360,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { passive: true });
 
   document.addEventListener('touchend', function(e) {
-    if (isMobile() || isAnimating || isPopupOpen) return;
+    if (isMobile() || scrollview() || isAnimating || isPopupOpen) return;
     
     const touchEndY = e.changedTouches[0].clientY;
     const diff = touchStartY - touchEndY;
@@ -433,6 +461,30 @@ document.addEventListener('DOMContentLoaded', function() {
       ) {
         navLinks.forEach(link => link.classList.remove('active'));
         navLinks[index].classList.add('active');
+      }
+    });
+  });
+  
+  window.addEventListener('scroll', function() {
+    if (!scrollview()) return;
+    if (isPopupOpen) return;
+
+    let fromTop = window.scrollY + 100;
+
+    sections.forEach((section, index) => {
+      if (
+        section.offsetTop <= fromTop &&
+        section.offsetTop + section.offsetHeight > fromTop
+      ) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+
+        // Update Navbar Brand Visibility
+        if (index === 0) {
+          navbarBrand.classList.remove('visible');
+        } else {
+          navbarBrand.classList.add('visible');
+        }
       }
     });
   });
@@ -645,6 +697,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Re-calculate on window resize to keep it responsive
   window.addEventListener('resize', positionSections);
+  window.addEventListener('resize', adjustTimelineLine);
 
   // Optimize project cards
   optimizeProjectCards();
@@ -820,4 +873,51 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  function alignContactIcons() {
+    const contactSection = document.querySelector("#contact");
+    if (!contactSection) return;
+
+    const card = contactSection.querySelector(".contact-info-card");
+    const linkedinIcon = contactSection.querySelector(".fa-linkedin-in");
+    const mailIcon = contactSection.querySelector('ion-icon[name="mail-outline"]');
+    const contactsList = contactSection.querySelector(".contacts-list");
+
+    if (!card || !linkedinIcon || !mailIcon || !contactsList) return;
+
+    const cardRect = card.getBoundingClientRect();
+    const linkedinRect = linkedinIcon.getBoundingClientRect();
+    const mailRect = mailIcon.getBoundingClientRect();
+
+    // Horizontal center positions
+    const linkedinCenterX = linkedinRect.left + linkedinRect.width / 2;
+    const mailCenterX = mailRect.left + mailRect.width / 2;
+
+    // Distance from card left
+    const targetDistance = linkedinCenterX - cardRect.left;
+    const currentDistance = mailCenterX - cardRect.left;
+
+    const delta = targetDistance - currentDistance;
+
+    const basePadding =
+      parseFloat(contactsList.dataset.basePadding) ||
+      parseFloat(getComputedStyle(contactsList).paddingLeft) ||
+      0;
+
+    // Store original padding once
+    if (!contactsList.dataset.basePadding) {
+      contactsList.dataset.basePadding = basePadding;
+    }
+
+    contactsList.style.paddingLeft = `${basePadding + delta}px`;
+  }
+
+  /* Run after icons & layout load */
+  window.addEventListener("load", alignContactIcons);
+
+  /* Recalculate on resize */
+  window.addEventListener("resize", () => {
+    window.requestAnimationFrame(alignContactIcons);
+  });
+
 });
