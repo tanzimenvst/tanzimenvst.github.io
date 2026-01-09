@@ -50,6 +50,54 @@ function initProjectPopup() {
   const contentArea = document.getElementById('projectContentPlaceholder');
   const projectCards = document.querySelectorAll('#projects .card');
 
+  // --- SERVER SLEEP WARNING LOGIC ---
+  
+  // --- DYNAMIC ALERT CONFIGURATION ---
+  
+  // Map specific project titles to their custom messages
+  const projectAlerts = {
+    "Thesis Hub": {
+      main: `
+        <div class="text-center py-2">
+          <div style="font-size: 3.5rem;" class="mb-2">
+            😴
+          </div>
+          <p class="small text-muted mb-0">This app may have gone to sleep as it’s hosted on a free server</p>
+        </div>`,
+      sub: `Please <strong>wait 1 to 1.5 minutes</strong> while the application starts up after you click proceed`
+    },
+    "Currency App": {
+      main: `
+        <div class="text-center py-2">
+          <div style="font-size: 3.5rem;" class="mb-2">
+            😴
+          </div>
+          <p class="small text-muted mb-0">This app may have gone to sleep as it’s hosted on a free server</p>
+        </div>`,
+      sub: `On the next page, click <strong>"Yes, get this app back up!"</strong>. It takes approx. 1 min to wake the server up`
+    }
+  };
+
+  // Setup Modal Elements
+  const warningModalEl = document.getElementById('serverWakeupModal');
+  const warningModal = new bootstrap.Modal(warningModalEl);
+  const confirmVisitBtn = document.getElementById('confirmVisitBtn');
+  
+  // Elements to update text
+  const modalMainText = document.getElementById('modalMainText');
+  const modalSubText = document.getElementById('modalSubText');
+  
+  let pendingUrl = '';
+
+  // Handle Proceed Button Click
+  confirmVisitBtn.addEventListener('click', () => {
+    if (pendingUrl) {
+      window.open(pendingUrl, '_blank');
+      warningModal.hide();
+      pendingUrl = ''; 
+    }
+  });
+
   // Sets modal top and height based on the current navbar height
   function updateModalSizing() {
     if (!navbar || !popup) return;
@@ -93,28 +141,60 @@ function initProjectPopup() {
       </div>`;
     
     try {
-      // if jupiter html
-      contentArea.innerHTML = `
+      const iframeHtml = `
           <iframe src="./projects/${fileName}"
                   id="projectFrame"
-                  style="width: 100%;" 
-                  title="${title}"
-                  onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';">
+                  style="width: 100%; opacity: 0; transition: opacity 0.3s ease;" 
+                  title="${title}">
           </iframe>`;
       
-      // Reset scroll position of the content area
+      contentArea.innerHTML = iframeHtml;
+
+      const iframe = document.getElementById('projectFrame');
+      
+      if (iframe) {
+        iframe.onload = function() {
+          // 1. Adjust Height
+          this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+          this.style.opacity = '1';
+
+          // 2. Check if this project has a specific alert configured
+          if (projectAlerts.hasOwnProperty(title)) {
+            try {
+              const doc = this.contentWindow.document;
+              
+              // Find the "Live" button inside the iframe
+              const liveBtn = doc.querySelector('.live-btn') || 
+                              Array.from(doc.querySelectorAll('a')).find(el => el.textContent.toLowerCase().includes('live'));
+
+              if (liveBtn) {
+                liveBtn.removeAttribute('onclick'); // Clear old inline events
+                
+                liveBtn.addEventListener('click', (e) => {
+                  e.preventDefault(); // Stop tab from opening
+                  
+                  // A. Load the custom text for THIS specific project
+                  const alertData = projectAlerts[title];
+                  modalMainText.innerHTML = alertData.main;
+                  modalSubText.innerHTML = alertData.sub;
+                  
+                  // B. Save URL and Show Modal
+                  pendingUrl = liveBtn.href;
+                  warningModal.show();
+                });
+              }
+            } catch (err) {
+              console.warn("Cross-origin restriction: Cannot access iframe content locally.");
+            }
+          }
+        };
+      }
+      
       document.querySelector('.project-display-area').scrollTop = 0;
     } catch (err) {
       contentArea.innerHTML = `
-        <div class="alert alert-info mt-4 shadow-sm d-flex align-items-stretch p-0 overflow-hidden">
-          <div class="bg-info d-flex align-items-center justify-content-center px-4 text-white">
-            <i class="bi bi-info-circle fs-2"></i>
-          </div>
-          
-          <div class="p-3">
-            <h4 class="alert-heading mb-1">Project Details</h4>
-            <p class="mb-0">The content for <b>${title}</b> is currently being updated.</p>
-          </div>
+        <div class="alert alert-info mt-4 shadow-sm">
+           <p class="mb-0">The content for <b>${title}</b> is currently being updated.</p>
         </div>`;
     }
   }
