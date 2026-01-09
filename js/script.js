@@ -64,7 +64,7 @@ function initProjectPopup() {
           </div>
           <p class="small text-muted mb-0">This app may have gone to sleep as it’s hosted on a free server</p>
         </div>`,
-      sub: `Please <strong>wait 1 to 1.5 minutes</strong> while the application starts up after you click proceed`
+      sub: `Please <strong>wait 1 to 1.5 minutes</strong> while the application starts up after you click proceed. For explore only, you can use <strong>Username: guest, Password: guest</strong>`
     },
     "Currency App": {
       main: `
