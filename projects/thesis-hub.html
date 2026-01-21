@@ -117,29 +117,64 @@
     <span class="badge bg-secondary me-1 mb-1">Render Hosting</span>
   </div>
 
-  <!-- CHALLENGES & SOLUTIONS -->
+  <!-- SYSTEM READINESS & END-TO-END IMPLEMENTATION -->
   <div class="section-card shadow border-0 p-4">
-    <h5 class="fw-bold mb-3">Challenges & Solutions</h5>
+    <h5 class="fw-bold mb-3">System Readiness & End-to-End Implementation</h5>
     <hr>
 
-    <p>
-      <strong>Challenge:</strong> Free-tier hosting caused the application to sleep after inactivity, leading to long cold-start delays.
-    </p>
-    <p>
-      <strong>Solution:</strong> Implemented a background keep-alive mechanism to periodically ping the server, ensuring 24/7 availability.
+    <p class="desc">
+      This application has been developed as a <strong>fully functional, deployment-ready system</strong>,
+      covering the complete workflow from data ingestion to visualization and user interaction.
+      The platform is not a prototype anymore; now it represents a <strong>complete full-stack GIS solution</strong>
+      with integrated frontend, backend, database, authentication, and deployment management.
     </p>
 
     <hr>
 
-    <p>
-      <strong>Challenge:</strong> Managing secure user authentication and thesis uploads in a public academic platform.
-    </p>
-    <p>
-      <strong>Solution:</strong> Integrated Supabase Auth with email verification, password reset links, and an admin-controlled CMS.
-    </p>
+    <ul>
+      <li>
+        <strong>Automated Data Upload & Processing:</strong>
+        Users can submit thesis metadata and spatial study area information directly through the web interface.
+        Uploaded data is validated, stored in a PostGIS-enabled database, and immediately available for map visualization
+        without manual processing.
+      </li>
+
+      <li>
+        <strong>Complete User Account Management:</strong>
+        Secure registration and login system with email verification, password reset functionality,
+        and session management, ensuring a reliable and user-friendly authentication experience.
+      </li>
+
+      <li>
+        <strong>Admin-Controlled Content Management System (CMS):</strong>
+        An administrative panel allows verification, approval, or rejection of submitted theses,
+        ensuring data quality, authenticity, and controlled public access.
+      </li>
+
+      <li>
+        <strong>Automated Email Notification System:</strong>
+        Users receive email notifications for account-related actions, thesis submission status,
+        and administrative decisions, improving transparency and engagement.
+      </li>
+
+      <li>
+        <strong>Interactive GIS Visualization:</strong>
+        Real-time spatial visualization using Leaflet and GeoServer (WMS),
+        with advanced filtering by university, department, degree, and roll number,
+        along with detailed popups containing thesis information.
+      </li>
+
+      <li>
+        <strong>Integrated & Scalable Architecture:</strong>
+        The system integrates frontend UI, backend APIs, spatial databases, authentication services,
+        and hosting infrastructure into a cohesive architecture designed for scalability and institutional deployment.
+      </li>
+    </ul>
 
     <div class="alert alert-warning mt-3 mb-0">
-      Since the app is hosted on free-tier services, performance may vary and mobile view is not yet fully supported.
+      The platform is fully operational and ready for real-world academic or institutional use.
+      The attached live exploration deployment utilizes free-tier hosting services, which may result
+      in minor performance limitations under heavy load, and the mobile view is not yet fully supported.
     </div>
   </div>
 
